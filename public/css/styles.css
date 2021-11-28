@@ -1,0 +1,607 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+/*header*/
+header {
+  background-color: white;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+.header-1 {
+  text-align: center;
+  border-bottom: 5px solid black;
+}
+.logo img {
+  width: 80px;
+  height: 80px;
+}
+.col-8 {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.search {
+  display: flex;
+}
+/*button dang nhap- dang ky*/
+.js-login,
+.js-signup {
+  border-radius: 10px;
+  color: black;
+  background-color: white(244, 245, 239);
+  padding: 2.5px;
+  margin-right: 20px;
+  opacity: 0.8;
+}
+
+.js-login:hover,
+.js-signup:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+/*-------------------------------dang nhap dang ky--------------------------*/
+/* auth-form */
+.login-register {
+  width: 100%;
+}
+.auth-form {
+  padding: 0 32px;
+  width: 500px;
+  border-radius: 5px;
+}
+.signup {
+  margin: 15px auto;
+}
+.login {
+  margin: 120px auto;
+}
+.auth-form .modal-header {
+  /* display: flex; */
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+  justify-content: center;
+}
+.auth-form .modal-header h3 {
+  font-weight: 400;
+  font-size: 24px;
+}
+/* form */
+.modal-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 550;
+  width: 100%;
+  font-size: 14px;
+}
+.modal-form input {
+  display: block;
+  margin-bottom: 16px;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+}
+/* controls */
+.auth-form .modal-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.modal-controls .btn {
+  width: 120px;
+  color: #fff;
+  background-color: black;
+  text-decoration: none;
+  padding: 14px 16px;
+  margin-top: 15px;
+  border: none;
+  font-weight: 500;
+  opacity: 0.9;
+}
+.modal-controls .btn:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+.modal-controls .btn-back {
+  width: 120px;
+  text-decoration: none;
+  background: none;
+  padding: 14px 16px;
+  margin-top: 15px;
+  border: none;
+  font-weight: 550;
+}
+.modal-controls .btn-back:hover {
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/*-----------------------------icon---------------------------*/
+.header-1 .col-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icon a {
+  color: black;
+  margin-right: 20px;
+}
+/*--------------------------nav-menu--------------------------*/
+nav {
+  border-bottom: wheat;
+}
+.menu {
+  justify-content: center;
+  display: flex;
+  padding: 15px;
+}
+.menu > li {
+  margin-right: 50px;
+  font-size: 20px;
+  position: relative;
+}
+nav ul li:last-child {
+  margin-right: 0px;
+}
+/*sub-menu*/
+.menu .sub-menu {
+  position: absolute;
+  background-color: white;
+  display: block;
+  width: 220px;
+  left: 0px;
+  transition: 2s;
+  z-index: 99;
+}
+
+.sub-menu li {
+  text-transform: none;
+  border-bottom: 2px solid black;
+  line-height: 50px;
+  display: none;
+}
+.menu li:hover > .sub-menu > li {
+  display: block;
+}
+.menu .sub-menu li > .sub-menu {
+  left: 222px;
+  top: 0px;
+}
+/*footer*/
+.top-footer {
+  position: relative;
+  padding-top: 20px;
+  text-align: center;
+
+  margin-bottom: 20px;
+}
+.bottom-footer {
+  display: flex;
+  justify-content: center;
+}
+.he-thong,
+.chinh-sach,
+.dia-chi p {
+  line-height: 30px;
+  font-size: 20px;
+}
+footer {
+  background-color: lavender;
+}
+
+/*slide*/
+.slide img {
+  width: 100%;
+}
+/*product*/
+.logan {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-size: 50px;
+  /*text-shadow: 4px 4px 0px #3f7fbf;
+  mix-blend-mode: screen;
+  animation: fadeIn 2.5s linear forwards;*/
+  text-align: center;
+  background: rgb(204, 255, 255);
+}
+.detail-product {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.detail-product img {
+  margin-bottom: 15px;
+}
+
+.detail-product img:hover {
+  transform: scale(1.1);
+}
+.picture-title {
+  margin-top: 5px;
+}
+
+.picture-title span {
+  display: flex;
+  justify-content: space-around;
+}
+/*news*/
+.list-news,
+.about-shop {
+  margin: 0 50px 50px 50px;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+.news-content {
+  display: flex;
+  padding: 5px;
+}
+.picture img {
+  height: 80px;
+  width: 80px;
+  padding: 5px;
+}
+
+/*cooptatione*/
+.cooptatione {
+  margin: 0 50px 50px 50px;
+  display: flex;
+}
+.picture-coop img {
+  height: 200px;
+  width: 200px;
+}
+.cooptatione-news {
+  display: flex;
+}
+.picture-coop,
+.text-coop {
+  padding: 10px;
+}
+/*cooptatione-1*/
+.cooptatione-1 {
+  margin: 0 50px 50px 50px;
+}
+/*systerm-shop*/
+.info-shop {
+  margin: 0 50px 50px 50px;
+}
+/*detail-product*/
+.slide-product div {
+  display: inline-block;
+}
+/*------------------------------------Trang khuyeens maix-------------------------*/
+.tieu_de {
+  display: flex;
+  justify-content: space-between;
+}
+/*bo loc*/
+.select {
+  border: 1px solid black;
+  padding: 5px;
+}
+.selected {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid black;
+}
+.selected a {
+  margin-right: 10px;
+}
+.list-select {
+  display: none;
+  padding: 0px;
+}
+.list-select li {
+  line-height: 40px;
+  border-bottom: 1px solid black;
+  font-size: 20px;
+}
+/* ------------CSS ảnh------------------ */
+/*img.more {
+  position: absolute;
+  top: 380px;
+  left: 0px;
+  transform: translate(0%, 0%);
+  opacity: 0;
+  transition: all 0.2s;
+}
+.shell:hover img.more,
+.shell:active img.more {
+  transform: translate(0%, -100%);
+  opacity: 1;
+}*/
+/* ------------Số trang---------------- */
+.number-page {
+  text-align: center;
+}
+.number-page li {
+  list-style: none;
+  display: inline-block;
+}
+.number-page li a {
+  text-decoration: none;
+  color: black;
+  padding-right: 20px;
+}
+/*-------------------chi tiet cua san pham------------------------*/
+.product-top {
+  display: flex;
+  margin-bottom: 30px;
+}
+.product-top * {
+  margin-right: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+/*Khoi hinhf anhr*/
+.product-content-left {
+  display: flex;
+  justify-content: center;
+}
+.product-content-left-main-img {
+  padding-right: 20px;
+}
+
+.product-content-left-img {
+  width: 20%;
+  height: 800px;
+  overflow: scroll;
+}
+.product-content-left-img img {
+  width: 100%;
+  cursor: pointer;
+  padding-bottom: 10px;
+}
+/*Khoi thong tin ben phai*/
+.product-content-right p,
+h1 {
+  font-size: 25px;
+}
+/*mau sac*/
+.product-content-right-color-img img {
+  width: 50px;
+}
+.product-content-right-color-img {
+  width: 55px;
+  height: 80px;
+  border: 1px solid #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 12px 0;
+}
+/*size*/
+.size span {
+  display: inline-block;
+  padding: 3px 6px;
+  border: 1px solid #ddd;
+  margin: 10px 10px 10px 0;
+  font-size: 12px;
+  cursor: pointer;
+}
+/*so luong*/
+.quantity {
+  display: flex;
+}
+.quantity {
+  display: flex;
+  align-items: center;
+}
+.quantity input {
+  width: 30px;
+  padding-left: 5px;
+}
+/*nut mua hang*/
+.product-content-right-button {
+  display: flex;
+  margin-bottom: 20px;
+}
+.btnmua {
+  border: 1px solid black;
+  margin-right: 20px;
+  padding: 5px;
+}
+.btnmua i {
+  margin-right: 10px;
+}
+.btnmua:hover {
+  background: black;
+  color: white;
+}
+.product-content-right-icon {
+  display: flex;
+  margin-top: 10px;
+}
+.product-content-right-icon-item {
+  display: flex;
+  margin-right: 30px;
+}
+.product-content-right-icon-item i {
+  margin-right: 15px;
+}
+/* .product-content-right-QR {
+    margin: 0px 0;
+}
+.product-content-right-QR img {
+    width: 100px;
+    height: 100px;
+} */
+.product-content-right-bottom {
+  padding-top: 10px;
+  border-top: 1px solid #ddd;
+  position: sticky;
+  top: 400px;
+}
+.product-content-right-bottom-top {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  top: -15px;
+  left: 50%;
+  border-radius: 50%;
+  transform: translate(-50%);
+  cursor: pointer;
+}
+.product-content-right-bottom-content-title {
+  display: flex;
+  border-bottom: 2px solid #ddd;
+}
+.product-content-right-bottom-content-title-item {
+  padding: 6px;
+  margin-right: 6px;
+  cursor: pointer;
+}
+.product-content-right-bottom-content {
+  padding-top: 10px;
+}
+.product-content-right-bottom-content-huongdanchonsize {
+  display: none;
+}
+.active {
+  display: none;
+}
+
+/* shop cart*/
+
+.title {
+  margin-bottom: 5vh;
+}
+
+.card_1 {
+  margin: auto;
+  max-width: 950px;
+  width: 90%;
+  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 1rem;
+  border: transparent;
+}
+.cart {
+  background-color: #fff;
+  padding: 4vh 5vh;
+  border-bottom-left-radius: 1rem;
+  border-top-left-radius: 1rem;
+}
+.summary {
+  background-color: #ddd;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  padding: 4vh;
+  color: rgb(65, 65, 65);
+}
+.summary .col-2 {
+  padding: 0;
+}
+
+.summary .col-10 {
+  padding: 0;
+}
+.title b {
+  font-size: 1.5rem;
+}
+.close {
+  margin-left: auto;
+  font-size: 0.7rem;
+}
+.back-to-shop {
+  margin-top: 4.5rem;
+}
+select {
+  border: 1px solid rgba(0, 0, 0, 0.137);
+  padding: 1.5vh 1vh;
+  margin-bottom: 4vh;
+  outline: none;
+  width: 100%;
+  background-color: rgb(247, 247, 247);
+}
+#code {
+  background-image: linear-gradient(
+      to left,
+      rgba(255, 255, 255, 0.253),
+      rgba(255, 255, 255, 0.185)
+    ),
+    url("https://img.icons8.com/small/16/000000/long-arrow-right.png");
+  background-repeat: no-repeat;
+  background-position-x: 95%;
+  background-position-y: center;
+}
+.truot {
+  display: flex;
+  justify-content: center;
+}
+.card_item {
+  display: flex;
+  justify-content: center;
+}
+.quick_view {
+  position: absolute;
+  background-color: white;
+  color: black;
+  border: none;
+  top: 50%;
+  left: 50%;
+  display: none;
+  transform: translate(-50%, -50%);
+}
+.card_item:hover .quick_view {
+  display: block;
+}
+.card_item:hover .card-img-top {
+  opacity: 60%;
+}
+.card_img {
+  position: relative;
+}
+/*--------------------banner----------------------*/
+.hero-banner h1 {
+  font-size: 48px;
+}
+.hero-banner .btn {
+  position: relative;
+  overflow: hidden;
+  z-index: 9;
+}
+.hero-banner .btn-primary {
+  color: #2f2f41;
+  background-color: rgba(1, 164, 121, 0.1);
+  border-color: #01a479;
+}
+.hero-banner .btn:before {
+  content: "";
+  background: #ed5561;
+  width: 4px;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  -webkit-transition: all 0.5s ease-in-out 0s;
+  -moz-transition: all 0.5s ease-in-out 0s;
+  -ms-transition: all 0.5s ease-in-out 0s;
+  -o-transition: all 0.5s ease-in-out 0s;
+  transition: all 0.5s ease-in-out 0s;
+}
+.hero-banner .btn:hover:before {
+  width: 100%;
+}
+/*-----------------------san_pham-------------------*/

@@ -1,0 +1,72 @@
+<div class="row">
+    <div class="col-2">
+            <div class="card mb-3">
+            <h5 class="card-header">Danh sách bảng</h5>
+            <div class="list-group">
+                <a name="" id="" class="btn btn-secondary mb-2 mt-2" href="/admin/loai_sp" role="button">Loại Sản phẩm</a>
+                <a name="" id="" class="btn btn-secondary mb-2" href="/admin/san_pham" role="button">Sản phẩm</a>
+                <a name="" id="" class="btn btn-secondary mb-2" href="/admin/hoa_don" role="button">Hóa đơn</a>
+                <a name="" id="" class="btn btn-secondary mb-2" href="/admin/khach_hang" role="button">Khách hàng</a>
+                <a name="" id="" class="btn btn-primary mb-2" href="/admin/cthd" role="button">Chi tiết hóa đơn</a>    
+                <a name="" id="" class="btn btn-secondary mb-2" href="/admin/doanh_thu/sp_daban" role="button">Xem danh sách sản phẩm đã bán</a>
+                <a name="" id="" class="btn btn-secondary mb-2" href="/admin/doanh_thu/kh_tongtien" role="button">Xem danh sách khách hàng đã mua hàng</a>   
+            </div>
+         </div>
+    </div>
+
+    <div class="col-10 mb-3">
+        {{#if this.empty}}
+    <div class="card">
+        <div class="card-header d-flex justify-content-between ">
+            <h1>Danh sách chi tiết hóa đơn</h1>
+            <a name="" id="" class="btn btn-outline-success" href="/admin/cthd/add" role="button">Thêm chi tiết hóa đơn</a>
+        </div>
+        <div class="card-body">
+            <p>Khong co du lieu</p>
+        </div>
+    </div>
+{{else}}
+<div class="card">
+    <div class="card-header d-flex justify-content-between">
+        <h1>Danh sách chi tiết hóa đơn</h1>
+        <a name="" id="" class="btn btn-outline-success" href="/admin/cthd/add" role="button">Thêm chi tiết hóa đơn</a>
+    </div>
+    <div class="card-body">
+       <table class="table table-hover">
+           <thead>
+               <tr>
+                  <th scope="col">id_hd</th>
+                  <th scope="col">id_sp</th>
+                  <th scope="col">so_luong</th>
+                  <th scope="col">Edit</th>
+               </tr>
+           </thead>
+           <tbody>
+              {{#each this.cthd}}
+              <tr>
+                  <td>{{id_hd}}</td>
+                  <td>{{id_sp}}</td>
+                  <td>{{so_luong}}</td>
+                  <td>
+                       <a class="btn btn-primary btn-sm" href="/admin/cthd/edit?id_hd={{id_hd}}&id_sp={{id_sp}}" role="button">
+                         <i class="fas fa-pencil-alt"></i>
+                      </a>
+
+                  </td>
+              </tr>
+              {{/each}}
+           </tbody>
+       </table>
+    </div>
+</div>
+    
+{{/if}}
+
+    </div>
+</div>
+
+
+
+
+
+

@@ -1,0 +1,99 @@
+<header class="container-fluid">
+    <div class="header-1">
+        <div class="row">
+            <div class="col-2">
+                <div class="logo">
+                    <a href="/web">
+                        <img src="/images/home/logo.jpg" alt="this is logo">
+                    </a>
+                </div>
+            </div>
+            <div class="col-8">
+                <div class="search">
+                    <form action="/web/search">
+                        <input type="text" size="60" name="searchtext" autofocus style="height: 38px;">
+                       <button type="submit" class="btn btn-light">search</button>
+                    </form>
+                </div>
+                {{#if lcIsAuthenticated}}
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        Welcome, {{lcAuthUser.ten_kh}}!
+                        </button>
+                            <ul class="dropdown-menu" style="width:100%" aria-labelledby="dropdownMenuButton1">
+                                <li><a class="dropdown-item" href="/web/profile"><i style="font-size: 16px; margin-right: 8px" class="fas fa-user fa-2x"></i>Profile</a></li>
+                                <li>
+                                    <form action="/web/dang_xuat" method="post">
+                                        <button class="dropdown-item" type="submit" name="your_name" value="your_value" class="btn-link"><i style="font-size: 16px; margin-right: 6px" class="fas fa-sign-out-alt"></i>Đăng xuất</button>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                {{else}} 
+                <div class="btn">
+                    <a href="/web/dangnhap" class="js-login">Đăng nhập</a>
+                    <a href="/web/dang_ky" class="js-signup">Đăng ký</a>
+                </div>
+                {{/if}}
+            </div>
+            <!--<div class="col-3">
+             </div>-->
+            <div class="col-2">
+                <div class="icon">
+                    <a href="/web/cart"><i class="fas fa-shopping-bag fa-2x"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav>
+        <ul class="menu">
+            <li> <a href="/web">Giới Thiệu</a></li>
+            <li> <a href="/web/san_pham">Sản Phẩm</a>
+                <ul class="sub-menu">
+                    <li><a href="">Áo nam</a>
+                        <!--<ul class="sub-menu">
+                            <li><a href="">Áo polo</a></li>
+                            <li><a href="">Áo phông</a></li>
+                            <li><a href="">Áo sơ mi</a></li>
+                            <li><a href="">Áo yangHo</a></li>
+                            <li><a href="">Áo len</a></li>
+                            <li><a href="">Áo nỉ</a></li>
+                            <li><a href="">Áo hodie</a></li>
+                            <li><a href="">Áo khoác</a></li>
+                        </ul>-->
+                    </li>
+                    <li><a href="">Quần nam</a>
+                        {{!-- <ul class="sub-menu">
+                            <li><a href="">Quân jeans</a></li>
+                            <li><a href="">Quần âu</a></li>
+                            <li><a href="">Quần kaki</a></li>
+                            <li><a href="">Quần short</a></li>
+                            <li><a href="">Quần jogger</a></li>
+                        </ul> --}}
+                    </li>
+                    <li><a href=""></a>
+                        {{!-- <ul class="sub-menu">
+                            <li><a href="">Quân jeans</a></li>
+                            <li><a href="">Quần âu</a></li>
+                            <li><a href="">Quần kaki</a></li>
+                            <li><a href="">Quần short</a></li>
+                            <li><a href="">Quần jogger</a></li>
+                        </ul> --}}
+                    </li>
+                    <li><a href="">Giày dép nam</a></li>
+                </ul>
+            </li>
+            <li><a href="/web/khuyen_mai">Khuyến mại</a>
+                <ul class="sub-menu">
+                    <li><a href="/web/khuyen_mai_30">Khuyến Mãi 30%</a></li>
+                    <li><a href="/web/khuyen_mai_40">Khuyến Mãi 40%</a></li>
+                    <li><a href="/web/khuyen_mai_50">Khuyến Mãi 50%</a></li>
+                </ul>
+            </li>
+            <li><a href="/web/tin_tuc">Tin tức</a></li>
+            <li><a href="/web/he_thong_shop">Hệ thống cửa hàng</a></li>
+            <li><a href="/web/tuyen_dung">Tuyển dụng</a></li>
+        </ul>
+    </nav>
+
+</header>

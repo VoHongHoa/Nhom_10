@@ -1,0 +1,78 @@
+<div class="row">
+    <div class="col-2">
+        <div class="card mb-3">
+            <h5 class="card-header">Danh sách bảng</h5>
+            <div class="list-group">
+                <a name="" id="" class="btn btn-secondary mb-2 mt-2" href="/admin/loai_sp" role="button">Loại Sản phẩm</a>
+                <a name="" id="" class="btn btn-primary mb-2" href="/admin/san_pham" role="button">Sản phẩm</a>
+                <a name="" id="" class="btn btn-secondary mb-2" href="/admin/hoa_don" role="button">Hóa đơn</a>
+                <a name="" id="" class="btn btn-secondary mb-2" href="/admin/khach_hang" role="button">Khách hàng</a>
+                <a name="" id="" class="btn btn-secondary mb-2" href="/admin/cthd" role="button">Chi tiết hóa đơn</a>   
+                <a name="" id="" class="btn btn-secondary mb-2" href="/admin/doanh_thu/sp_daban" role="button">Xem danh sách sản phẩm đã bán</a>  
+                <a name="" id="" class="btn btn-secondary mb-2" href="/admin/doanh_thu/kh_tongtien" role="button">Xem danh sách khách hàng đã mua hàng</a> 
+            </div>
+         </div>
+    </div>
+
+    <div class="col-10 mb-3">
+        {{#if this.empty}}
+            <div class="card">
+                <div class="card-header d-flex justify-content-between">
+                    <h1>Danh sách sản phẩm</h1>
+                    <a name="" id="" class="btn btn-outline-success" href="/admin/san_pham/add" role="button">Thêm sản phẩm</a>
+                </div>
+                <div class="card-body">
+                    <p>Khong co du lieu</p>
+                </div>
+            </div>
+        {{else}}
+            <div class="card">
+                <div class="card-header d-flex justify-content-between">
+                    <h1>Danh sách sản phẩm</h1>
+                    <a name="" id="" class="btn btn-outline-success" href="/admin/san_pham/add" role="button">Thêm sản phẩm</a>
+                </div>
+                <div class="card-body">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">id_sp</th>
+                                <th scope="col">ten_sp</th>
+                                <th scope="col">gia_sp</th>
+                                <th scope="col">trang_thai_sp</th>
+                                <th scope="col">mau_sp</th>
+                                <th scope="col">giam_gia_sp</th>
+                                <th scope="col">id_loai_sp</th>
+                                <th scope="col">size_sp</th>
+                                <th scope="col">Lua_chon</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each this.san_pham}}
+                                <tr>
+                                    <td>{{id_sp}}</td>
+                                    <td>{{ten_sp}}</td>
+                                    <td>{{gia_sp}}</td>
+                                    <td>{{trang_thai_sp}}</td>
+                                    <td>{{mau_sp}}</td>
+                                    <td>{{giam_gia_sp}}</td>
+                                    <td>{{id_loai_sp}}</td>
+                                    <td>{{size_sp}}</td>
+                                    <td>
+                                        <a class="btn btn-primary btn-sm" href="/admin/san_pham/edit?id={{id_sp}}" role="button">
+                                            <i class="fas fa-pencil-alt"></i>
+                                        </a>
+
+                                    </td>
+                                </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div> 
+        {{/if}}
+    </div>
+</div>
+
+
+
+

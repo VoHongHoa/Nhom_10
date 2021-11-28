@@ -1,0 +1,56 @@
+
+        <section>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <p style="background-color: rgb(207, 206, 206); padding: 7px 0;">Trang chủ / khuyến mại</p>
+                    </div>
+                </div>
+                <div class="tieu_de">
+                    <h2 style="font-size: 30px;color: black;">Các sản phẩm đang sale có thể phù hợp với bạn</h2>
+                    <div class="select">
+                        <div class="selected">
+                            <a href="" style="font-size: 20px;">Mới nhất</a>
+                            <i class="fas fa-angle-down"></i>
+                        </div> 
+                        <ul class="list-select">
+                            <li><a href="#">Thứ tự mặc định</a></li>
+                            <li><a href="#">Phổ biến nhất</a></li>
+                            <li><a href="#">Mới nhất</a></li>
+                            <li><a href="#">Giá thấp đến cao</a></li>
+                            <li><a href="#">Giá cao đến thấp</a></li>
+                        </ul>
+                        
+                    </div>
+                </div>
+               
+                <div class="section group">
+                    <div class="row">
+                    {{#each san_pham}}
+                        <div class="col-3">
+                            <div class="detail-product">
+                                <img class="picture" src="/images/imageKM/{{id_sp}}.png" alt="shirt5">
+                                <img class="more" src="/images/imageKM/{{id_sp}}p.png" alt="more5">
+                                <div class="picture-title">
+                                    <a href="/web/chitietsp.html" style="font-size: 30px;">{{ten_sp}}</a>
+                                    <span><del style="color: grey;font-size: 18px;">990.000đ</del> <ins style="color: red;font-size: 20px;">495.000đ</ins></span>
+                                </div>
+                            </div>
+                        </div>
+                    {{/each}}
+
+
+                    </div>
+
+                </div>
+                <ul class="number-page">
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#"><i class="fas fa-angle-double-right"></i></a></li>
+                    <li><a href="#">Last</a></li>
+                </ul>   
+            </div> 
+        </section>
