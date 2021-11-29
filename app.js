@@ -108,11 +108,7 @@ app.get('/web/views_sp/:id',async function (req,res){
     })
 })
 
-app.get('/web/add/:id',async function (req, res, next){
-    if(!req.session.isAuthenticated)
-    {
-        res.redirect(`/web/dangnhap`);
-    } next()},async function(req, res, next) {
+app.get('/web/add/:id',async function(req, res, next) {
     try{
         var productId = req.params.id;
         var count = req.query.soluong
@@ -123,31 +119,8 @@ app.get('/web/add/:id',async function (req, res, next){
         product.map(function(p){
             p.gia_moi = p.gia_sp*(100 - p.giam_gia_sp)/100 ;
         })
-        cart.add(product[0], productId,count);
-        var entity = {
-            id_kh : req.session.authUser.id_kh,
-            trang_thai_hd : 0,
-            ngay_hd: new Date()
-        }
-        var rows_1 = await hoa_don_model.single_kh_hd(entity.id_kh)
-        if(rows_1.length === 0){
-            await hoa_don_model.add(entity)
-        }
-        var rows = await hoa_don_model.single_kh_hd(entity.id_kh)
-        var entity1 = {
-            id_hd : rows[0].id_hd,
-            id_sp : productId,
-            so_luong: count
-        }
-        var rows_2 = await chi_tiet_hd.single(entity1.id_hd,entity1.id_sp)
-        if(rows_2.length === 0){
-            chi_tiet_hd.add(entity1)
-        }
-        else {
-            chi_tiet_hd.updatecount(entity1)
-        }
-        //console.log(entity1)
-        req.session.cart = cart;
+        cart.add(product[0],productId,count);
+        req.session.cart = cart
         res.redirect(req.get('referer'));
     }
     catch (error){
@@ -155,6 +128,38 @@ app.get('/web/add/:id',async function (req, res, next){
         res.redirect(`/web/views_sp/${productId}`)
     }
 });
+app.get('/web/buy',function (req, res, next){
+    if(!req.session.isAuthenticated)
+    {
+        return res.redirect(`/web/dangnhap`);
+    }
+    next()
+},async function (req,res){
+    try{
+        var cart = new Cart(req.session.cart);
+        var user = req.session.authUser
+        var entity = {
+            id_kh : user.id_kh,
+            trang_thai_hd : 0,
+            ngay_hd: new Date()
+        }
+        await hoa_don_model.add(entity)
+        var hd_kh = await hoa_don_model.single_kh_hd(user.id_kh)
+        var cart_1 = cart.generateArray()
+        for(let i=0 ; i< cart_1.length ; i++){
+            var entity1 = {
+                id_hd: hd_kh[0].id_hd,
+                id_sp: cart_1[i].item.id_sp,
+                so_luong: cart_1[i].qty
+            }
+            await chi_tiet_hd.add(entity1)
+        }
+        res.render('web/cart');
+    }
+    catch (error){
+        res.render('web/cart');
+    }
+})
 
 app.get('/web/remove/:id', function(req, res, next) {
     var productId = req.params.id;

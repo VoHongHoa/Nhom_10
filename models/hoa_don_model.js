@@ -25,7 +25,7 @@ module.exports ={
         return db.del(TBL_hoa_don, condition)
     },
     single_kh_hd: function(id){
-        return db.load(`select * from ${TBL_hoa_don} where id_kh = ${id}`);
+        return db.load(`SELECT * FROM ${TBL_hoa_don} WHERE id_kh = ${id} and id_hd = (SELECT MAX(id_hd) FROM ${TBL_hoa_don} WHERE id_kh = ${id})`);
     }
 
 

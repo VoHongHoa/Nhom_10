@@ -1,40 +1,42 @@
 <div class="d-flex mb-3" style="justify-content: center;">
     <div class="card" style="width: 70%">
-    <div class="card-header">
-        <h1>Lịch sử mua hàng</h1>
-        <div class="col align-self-center text-right text-muted count">{{session.cart.totalItems}}</div>
-    </div>
-    <div class="card-body">
-        <table class="table">
-        <thead>
-            <tr>
-                <th>Hình ảnh</th>
-                <th>Tên sản phẩm</th>
-                <th>số lượng</th>
-                <th>Giá</th>
-                <th>Lựa chọn</th>
-
-            </tr>
-        </thead>
-        <tbody>   
-                {{#each session.cart.items}}
+        <div class="card-header">
+            <h1>Giỏ Hàng</h1>
+        </div>
+        <div class="card-body">
+            <table class="table">
+                <thead>
                 <tr>
-                    <td><img class="img-fluid" src="/images/home/product/img/{{this.item.id_sp}}/{{this.item.id_sp}}.jpg" style="width:80px"></td>
-                    <td><p>{{this.item.ten_sp}}</p></td>
-                    <td>{{this.qty}}</td>
-                    <td><p>{{this.item.gia_moi}} <span class="close">đ</span></p></td>
-                    <td><a name="" id="" class="btn btn-danger link" href="/web/remove/{{this.item.id_sp}}" role="button">Xóa</a></td>
+                    <th>Hình ảnh</th>
+                    <th>Tên sản phẩm</th>
+                    <th>số lượng</th>
+                    <th>Giá</th>
+                    <th>Xóa 1 sản </th>
+                    <th>Lựa chọn</th>
+
                 </tr>
-            {{/each}}
-        </tbody>   
-</table>   
-    </div>
-    <div class="card-footer">
-        <div style="float: right;">
+                </thead>
+                <tbody>
+                {{#each session.cart.items}}
+                    <tr>
+                        <td><img class="img-fluid" src="/images/product/p{{this.item.id_sp}}/{{this.item.id_sp}}_1.png" style="width:80px"></td>
+                        <td><p>{{this.item.ten_sp}}</p></td>
+                        <td>{{this.qty}}</td>
+                        <td><p>{{this.item.gia_moi}} <span class="close">đ</span></p></td>
+                        <td><a href="/web/remove/{{this.item.id_sp}}">xóa</a></td>
+                        <td><a name="" id="" class="btn btn-danger link" href="/web/delete/{{this.item.id_sp}}" role="button">Xóa</a></td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        </div>
+        <div class="card-footer">
+            <div style="float: right;">
+                <h2><a href="/web/buy">mua</a></h2>
                 <h3 class="mb-3">Tổng tiền: <span> {{session.cart.totalPrice}}</span> đ</h3>
                 <a style="width:200px" class="btn btn-dark link" href="/web" role="button"><i class="fas fa-backward"> Quay trở lại mua sắm</i></a>
             </div>
+        </div>
     </div>
-</div>
 
 </div>

@@ -305,18 +305,17 @@ router.get('/cart', async function (req,res){
 /* mua san pham*/
 
 
-router.get('/cart', function(req, res, next) {
+router.get('/cart',async function(req, res, next) {
     if (!req.session.cart) {
         return res.render('cart', {
             products: null
         });
     }
     var cart = req.session.cart;
-    var totalitem = req.session.totalitem;
-    var totalprice = req.session.totalprice
+
     res.render('cart', {
-        totalPrice: totalprice,
-        totalitem: totalitem,
+        totalitem : cart.totalQty,
+        totalprice : cart.totalPrice,
         cart
     });
 });
