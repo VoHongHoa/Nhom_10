@@ -37,6 +37,13 @@ app.engine('.hbs', exphbs({
 }));
 app.set('view engine', '.hbs');
 
+const loai_sp_model = require("./models/loai_sp_model")
+app.use( async function(req, res, next) {
+    const rows = await loai_sp_model.all();
+    res.locals.loai_sp = rows;
+    next();
+})
+
 app.use(express.static(__dirname+'/public'))
 
 app.use(async function(req, res, next) {

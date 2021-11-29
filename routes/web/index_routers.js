@@ -26,7 +26,7 @@ router.get('/', async function(req, res){
 
 
 router.get('/san_pham', async function(req, res){
-    const limit = 8;
+    const limit = 2;
     const page = +req.query.page || 1
     if (page < 0) page =1
     const offset = (page - 1)*limit;
@@ -48,6 +48,39 @@ router.get('/san_pham', async function(req, res){
     }
     console.log(page_item)
     res.render(`web/san_pham`,{
+        san_pham: list,
+        empty: list.length === 0,
+        page_item,
+        pre: page - 1,
+        next: page + 1,
+        can_pre: page > 1,
+        can_next: page < nPage
+    });
+})
+
+router.get('/byCat/:id_loai_sp', async function(req, res){
+    const limit = 2;
+    const page = +req.query.page || 1
+    if (page < 0) page =1
+    const offset = (page - 1)*limit;
+    const list = await san_phamModel.pagingByCat(req.params.id_loai_sp, limit, offset);
+    list.map(function(p){
+        p.f_gia_sp= p.gia_sp + 'đ';
+        p.gia_moi = p.gia_sp*(100 - p.giam_gia_sp)/100 + 'đ';
+        p.f_giam_gia_sp = '-' + p.giam_gia_sp + '%' 
+    })
+    const total = await san_phamModel.count();
+    const nPage = Math.ceil(total/limit);
+    const page_item = [];
+    for (let i = 1;i <= nPage; i++){
+        const item ={
+            value: i,
+            isActive: i === page
+        }
+        page_item.push(item);
+    }
+    console.log(page_item)
+    res.render(`web/byCat`,{
         san_pham: list,
         empty: list.length === 0,
         page_item,

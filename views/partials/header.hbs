@@ -50,37 +50,9 @@
             <li> <a href="/web">Giới Thiệu</a></li>
             <li> <a href="/web/san_pham">Sản Phẩm</a>
                 <ul class="sub-menu">
-                    <li><a href="">Áo nam</a>
-                        <!--<ul class="sub-menu">
-                            <li><a href="">Áo polo</a></li>
-                            <li><a href="">Áo phông</a></li>
-                            <li><a href="">Áo sơ mi</a></li>
-                            <li><a href="">Áo yangHo</a></li>
-                            <li><a href="">Áo len</a></li>
-                            <li><a href="">Áo nỉ</a></li>
-                            <li><a href="">Áo hodie</a></li>
-                            <li><a href="">Áo khoác</a></li>
-                        </ul>-->
-                    </li>
-                    <li><a href="">Quần nam</a>
-                        {{!-- <ul class="sub-menu">
-                            <li><a href="">Quân jeans</a></li>
-                            <li><a href="">Quần âu</a></li>
-                            <li><a href="">Quần kaki</a></li>
-                            <li><a href="">Quần short</a></li>
-                            <li><a href="">Quần jogger</a></li>
-                        </ul> --}}
-                    </li>
-                    <li><a href=""></a>
-                        {{!-- <ul class="sub-menu">
-                            <li><a href="">Quân jeans</a></li>
-                            <li><a href="">Quần âu</a></li>
-                            <li><a href="">Quần kaki</a></li>
-                            <li><a href="">Quần short</a></li>
-                            <li><a href="">Quần jogger</a></li>
-                        </ul> --}}
-                    </li>
-                    <li><a href="">Giày dép nam</a></li>
+                    {{#each loai_sp}}
+                        <li><a href="/web/byCat/{{id_loai_sp}}">{{ten_loai_sp}}</a></li>
+                    {{/each}}
                 </ul>
             </li>
             <li><a href="/web/khuyen_mai">Khuyến mại</a>
