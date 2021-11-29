@@ -108,37 +108,52 @@ app.get('/web/views_sp/:id',async function (req,res){
     })
 })
 
-app.get('/web/add/:id',async function(req, res, next) {
-    var productId = req.params.id;
-    var count = req.query.soluong
-    var size = req.query.size
-    var color = req.query.color
-    var cart = new Cart(req.session.cart ? req.session.cart : {});
-    var product = await san_phamModel.findbyid_size_color(productId,size,color);
-    product.map(function(p){
-        p.gia_moi = p.gia_sp*(100 - p.giam_gia_sp)/100 ;
-    })
-    cart.add(product[0], productId,count);
-    var entity = {
-       id_kh : req.session.authUser.id_kh,
-       trang_thai_hd : 0,
-       ngay_hd: new Date()
+app.get('/web/add/:id',async function (req, res, next){
+    if(!req.session.isAuthenticated)
+    {
+        res.redirect(`/web/dangnhap`);
+    } next()},async function(req, res, next) {
+    try{
+        var productId = req.params.id;
+        var count = req.query.soluong
+        var size = req.query.size
+        var color = req.query.color
+        var cart = new Cart(req.session.cart ? req.session.cart : {});
+        var product = await san_phamModel.findbyid_size_color(productId,size,color);
+        product.map(function(p){
+            p.gia_moi = p.gia_sp*(100 - p.giam_gia_sp)/100 ;
+        })
+        cart.add(product[0], productId,count);
+        var entity = {
+            id_kh : req.session.authUser.id_kh,
+            trang_thai_hd : 0,
+            ngay_hd: new Date()
+        }
+        var rows_1 = await hoa_don_model.single_kh_hd(entity.id_kh)
+        if(rows_1.length === 0){
+            await hoa_don_model.add(entity)
+        }
+        var rows = await hoa_don_model.single_kh_hd(entity.id_kh)
+        var entity1 = {
+            id_hd : rows[0].id_hd,
+            id_sp : productId,
+            so_luong: count
+        }
+        var rows_2 = await chi_tiet_hd.single(entity1.id_hd,entity1.id_sp)
+        if(rows_2.length === 0){
+            chi_tiet_hd.add(entity1)
+        }
+        else {
+            chi_tiet_hd.updatecount(entity1)
+        }
+        //console.log(entity1)
+        req.session.cart = cart;
+        res.redirect(req.get('referer'));
     }
-    var rows_1 = await hoa_don_model.single_kh_hd(entity.id_kh)
-    if(rows_1.length === 0){
-       await hoa_don_model.add(entity)
+    catch (error){
+        var productId = req.params.id;
+        res.redirect(`/web/views_sp/${productId}`)
     }
-    var rows = await hoa_don_model.single_kh_hd(entity.id_kh)
-    var entity1 = {
-        id_hd : rows[0].id_hd,
-        id_sp : productId,
-        so_luong: count
-    }
-    //console.log(entity1)
-    chi_tiet_hd.add(entity1)
-
-    req.session.cart = cart;
-    res.redirect(req.get('referer'));
 });
 
 app.get('/web/remove/:id', function(req, res, next) {

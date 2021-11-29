@@ -25,5 +25,8 @@ module.exports ={
         }
         //console.log(condition)
         return db.delctsp(TBL_chi_tiet_hd, condition.id_hd, condition.id_sp)
+    },
+    updatecount: function (entity){
+        return db.load(`UPDATE ${TBL_chi_tiet_hd} SET so_luong = ${entity.so_luong} WHERE id_hd = ${entity.id_hd} and id_sp = ${entity.id_sp}`)
     }
 }

@@ -223,20 +223,23 @@ router.get('/tuyen_dung',async function (req,res){
 
 /* thanh search*/
 router.get('/search', async  function (req,res){
-    var searchtext = req.query.searchtext;
-    var list = await san_phamModel.findbyname(searchtext);
-    if(list.length===0)
-    {list = await  san_phamModel.findloaisp(searchtext);}
+    try{
+        var searchtext = req.query.searchtext;
+        var list = await san_phamModel.findbyname(searchtext);
+        if(list.length===0)
+        {list = await  san_phamModel.findloaisp(searchtext);}
 
         list.map(function(p){
             p.f_gia_sp= p.gia_sp + 'đ';
             p.gia_moi = p.gia_sp*(100 - p.giam_gia_sp)/100 + 'đ';
-            p.f_giam_gia_sp = '-' + p.giam_gia_sp + '%' 
+            p.f_giam_gia_sp = '-' + p.giam_gia_sp + '%'
         })
-    res.render('web/san_pham',{
-        san_pham: list,
-        empty: list.length === 0,
-    })
+        res.render('web/san_pham',{
+            san_pham: list,
+            empty: list.length === 0})
+    } catch (error){
+        res.redirect('/web')
+    }
 })
 
 

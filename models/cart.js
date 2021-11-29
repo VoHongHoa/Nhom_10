@@ -8,8 +8,18 @@ module.exports = function Cart(oldCart) {
         if (!storedItem) {
             storedItem = this.items[id] = {item: item, qty: count , price: 0};
         }
-        storedItem.price = storedItem.item.gia_moi * storedItem.qty;
-        this.totalPrice += storedItem.price;
+        storedItem.qty = count
+        if(storedItem.price ===0){
+            storedItem.price = storedItem.item.gia_moi * storedItem.qty;
+            this.totalPrice += storedItem.price;
+        }
+        else
+        {
+            this.totalPrice -= this.items[id].price;
+            storedItem.price = storedItem.item.gia_moi * storedItem.qty;
+            this.totalPrice += storedItem.price;
+        }
+
     };
 
     this.reduceByOne = function (id) {
