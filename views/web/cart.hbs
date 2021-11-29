@@ -1,39 +1,40 @@
-<div class="card_1">
-        <div class="cart mb-3">
-            <div class="title">
-                <div class="row">
-                    <div class="col">
-                        <h4><b>Shopping Cart</b></h4>
-                    </div>
-                    <div class="col align-self-center text-right text-muted count">{{session.cart.totalItems}}</div>
-                </div>
-            </div>
-            <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Img</th>
-                            <th>Tên sản phẩm</th>
-                            <th>số lượng</th>
-                            <th>Giá</th>
-                            <th>Lựa chọn</th>
-                        </tr>
-                    </thead>
-                    <tbody>   
-                         {{#each session.cart.items}}
-                            <tr>
-                                <td><img class="img-fluid" src="/images/home/product/img/{{this.item.id_sp}}.png" style="width:80px"></td>
-                                <td><p>{{this.item.ten_sp}}</p></td>
-                                <td>{{this.qty}}</td>
-                                <td><p>{{this.item.gia_moi}} <span class="close">đ</span></p></td>
-                                <td><p class="price">{{this.item.gia_moi}}</p></td>
-
-                                <td><a name="" id="" class="btn btn-danger link" href="/web/remove/{{this.item.id_sp}}" role="button">Xóa</a></td>
-                            </tr>
-                        {{/each}}
-                    </tbody>
-            </table>   
-
-            <p>Tổng tiền: <span> {{session.cart.totalPrice}}</span> đ</p>
-            <a name="" id="" class="btn btn-success link" href="/web" role="button" style="width:40%"><i class="fas fa-backward"> Quay trở lại mua sắm</i></a>
+<div class="d-flex mb-3" style="justify-content: center;">
+    <div class="card" style="width: 70%">
+    <div class="card-header">
+        <h1>Lịch sử mua hàng</h1>
+        <div class="col align-self-center text-right text-muted count">{{session.cart.totalItems}}</div>
     </div>
+    <div class="card-body">
+        <table class="table">
+        <thead>
+            <tr>
+                <th>Hình ảnh</th>
+                <th>Tên sản phẩm</th>
+                <th>số lượng</th>
+                <th>Giá</th>
+                <th>Lựa chọn</th>
+
+            </tr>
+        </thead>
+        <tbody>   
+                {{#each session.cart.items}}
+                <tr>
+                    <td><img class="img-fluid" src="/images/home/product/img/{{this.item.id_sp}}/{{this.item.id_sp}}.jpg" style="width:80px"></td>
+                    <td><p>{{this.item.ten_sp}}</p></td>
+                    <td>{{this.qty}}</td>
+                    <td><p>{{this.item.gia_moi}} <span class="close">đ</span></p></td>
+                    <td><a name="" id="" class="btn btn-danger link" href="/web/remove/{{this.item.id_sp}}" role="button">Xóa</a></td>
+                </tr>
+            {{/each}}
+        </tbody>   
+</table>   
+    </div>
+    <div class="card-footer">
+        <div style="float: right;">
+                <h3 class="mb-3">Tổng tiền: <span> {{session.cart.totalPrice}}</span> đ</h3>
+                <a style="width:200px" class="btn btn-dark link" href="/web" role="button"><i class="fas fa-backward"> Quay trở lại mua sắm</i></a>
+            </div>
+    </div>
+</div>
+
 </div>
