@@ -164,14 +164,14 @@ app.get('/web/buy',function (req, res, next){
 app.get('/web/remove/:id', function(req, res, next) {
     var productId = req.params.id;
     var cart = new Cart(req.session.cart ? req.session.cart : {});
-    cart.removeItem(productId);
+    cart.reduceByOne(productId);
     req.session.cart = cart;
     res.redirect('/web/cart');
 });
 app.get('/web/delete/:id', function(req, res, next) {
     var productId = req.params.id;
     var cart = new Cart(req.session.cart ? req.session.cart : {});
-    cart.reduceByOne(productId);
+    cart.removeItem(productId);
     req.session.cart = cart;
     res.redirect('/web/cart');
 });
