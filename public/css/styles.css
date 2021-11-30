@@ -6,8 +6,9 @@
 p {
   margin: 0;
 }
-li {
+ul, li {
   list-style: none;
+  padding: 0;
 }
 a {
   text-decoration: none;
@@ -160,14 +161,22 @@ nav ul li:last-child {
   display: block;
   width: 220px;
   left: 0px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 .sub-menu li {
-  line-height: 50px;
+  line-height: 38px;
   display: none;
+  padding-left: 0;
+}
+.sub-menu a{
+  padding-left: 32px;
+  color: black;
 }
 .menu li:hover > .sub-menu > li {
   display: block;
+}
+.sub-menu li:hover {
+  background-color: #ccc;
 }
 /*slide*/
 .slide img {
