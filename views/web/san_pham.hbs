@@ -13,10 +13,15 @@
                         <div class="card-body">
                             <div class="d-flex justify-content-between">
                                 <h5 class="card-title">{{ten_sp}}</h5>
+                                {{#if giam_gia_sp}}
                                 <h4 class="card-text" style="color: rgb(218, 109, 109);" >{{f_giam_gia_sp}}</h4>
+                                {{/if}}
+
                             </div>
                             <div class="d-flex justify-content-between">
-                                <h8 class="card-text" style="color: black; text-decoration: line-through; " >{{f_gia_sp}}</h8> 
+                                {{#if giam_gia_sp}}
+                                    <h6 class="card-text" style="color: black; text-decoration: line-through; " >{{f_gia_sp}}</h6> 
+                                {{/if}}
                                 <h6 class="card-text" style="color: rgb(120, 120, 202);" >{{gia_moi}}</h6>
                             </div>
                         </div>
