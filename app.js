@@ -44,6 +44,12 @@ app.use( async function(req, res, next) {
     next();
 })
 
+app.use( async function(req, res, next) {
+    const rows = await san_phamModel.gia_tri_km();
+    res.locals.gia_tri_km = rows;
+    next();
+})
+
 app.use(express.static(__dirname+'/public'))
 
 app.use(async function(req, res, next) {

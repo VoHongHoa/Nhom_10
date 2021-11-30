@@ -6,7 +6,8 @@
 p {
   margin: 0;
 }
-ul, li {
+ul,
+li {
   list-style: none;
   padding: 0;
 }
@@ -167,8 +168,12 @@ nav ul li:last-child {
   line-height: 38px;
   display: none;
   padding-left: 0;
+  border-bottom: 1px solid black;
 }
-.sub-menu a{
+.sub-menu li:last-child {
+  border-bottom: none;
+}
+.sub-menu a {
   padding-left: 32px;
   color: black;
 }

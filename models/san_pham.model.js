@@ -55,5 +55,11 @@ module.exports ={
     countByCat: async function(id_loai_sp){
         const rows = await db.load(`select count(*) as total from ${TBL_san_pham} where id_loai_sp = ${id_loai_sp}`);
         return rows[0].total;
+    },
+    san_pham_km: function(giam_gia_sp){
+        return db.load(`select * from ${TBL_san_pham} where giam_gia_sp = ${giam_gia_sp}`);
+    },
+    gia_tri_km: function(){
+        return db.load(`SELECT DISTINCT giam_gia_sp  FROM ${TBL_san_pham} where giam_gia_sp > 0 ORDER BY giam_gia_sp ASC`)
     }
 }

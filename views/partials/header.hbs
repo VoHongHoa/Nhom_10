@@ -57,9 +57,9 @@
             </li>
             <li><a href="/web/khuyen_mai">Khuyến mãi</a>
                 <ul class="sub-menu">
-                    <li><a href="/web/khuyen_mai_30">Khuyến mãi 30%</a></li>
-                    <li><a href="/web/khuyen_mai_40">Khuyến mãi 40%</a></li>
-                    <li><a href="/web/khuyen_mai_50">Khuyến mãi 50%</a></li>
+                    {{#each gia_tri_km}}
+                        <li><a  class="" href="/web/KM/{{giam_gia_sp}}" role="button">Khuyến mãi {{giam_gia_sp}}%</a></li>
+                    {{/each}}
                 </ul>
             </li>
             <li><a href="/web/tin_tuc">Tin tức</a></li>

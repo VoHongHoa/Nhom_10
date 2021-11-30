@@ -92,7 +92,18 @@ router.get('/byCat/:id_loai_sp', async function(req, res){
         can_next: page < nPage
     });
 })
-
+router.get('/KM/:giam_gia_sp', async function(req, res){
+    const list = await san_phamModel.san_pham_km(req.params.giam_gia_sp);
+    list.map(function(p){
+        p.f_gia_sp= p.gia_sp + 'đ';
+        p.gia_moi = p.gia_sp*(100 - p.giam_gia_sp)/100 + 'đ';
+        p.f_giam_gia_sp = '-' + p.giam_gia_sp + '%' 
+    })
+    res.render(`web/KM`,{
+        san_pham: list,
+        empty: list.length === 0,
+    });
+})
 /*tim san pham*/
 router.get('/ao_polo', async function(req, res){
 
