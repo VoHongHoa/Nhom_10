@@ -19,7 +19,7 @@
                 <tbody>
                 {{#each session.cart.items}}
                     <tr>
-                        <td><img class="img-fluid" src="/images/product/p1/{{this.item.id_sp}}.png" style="width:80px"></td>
+                        <td><img class="img-fluid" src="/images/product/p{{this.item.id_sp}}/{{this.item.id_sp}}.png" style="width:80px"></td>
                         <td><p>{{this.item.ten_sp}}</p></td>
                         <td>{{this.qty}}</td>
                         <td><p>{{this.item.gia_moi}} <span class="close">đ</span></p></td>

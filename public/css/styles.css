@@ -160,37 +160,15 @@ nav ul li:last-child {
   display: block;
   width: 220px;
   left: 0px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 .sub-menu li {
-  border-bottom: 1px solid black;
   line-height: 50px;
   display: none;
 }
 .menu li:hover > .sub-menu > li {
   display: block;
 }
-/*footer*/
-.top-footer {
-  position: relative;
-  padding-top: 20px;
-  text-align: center;
-
-  margin-bottom: 20px;
-}
-.bottom-footer {
-  display: flex;
-  justify-content: center;
-}
-.he-thong,
-.chinh-sach,
-.dia-chi p {
-  line-height: 30px;
-  font-size: 20px;
-}
-footer {
-  background-color: lavender;
-}
-
 /*slide*/
 .slide img {
   width: 100%;

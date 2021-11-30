@@ -11,7 +11,7 @@
             <div class="col-8">
                 <form action="/web/search">
                     <div style="position: relative;">
-                        <input type="text" size="60" name="searchtext" autofocus>
+                        <input style="padding-left: 8px;" placeholder="search" type="text" size="60" name="searchtext" autofocus>
                         <button type="submit" style="position: absolute; right:0;width:10%"><i class="fas fa-search"></i></button>
                     </div>
                 </form>
@@ -51,7 +51,7 @@
             <li> <a href="/web/san_pham">Sản Phẩm</a>
                 <ul class="sub-menu">
                     {{#each loai_sp}}
-                        <li><a href="/web/byCat/{{id_loai_sp}}">{{ten_loai_sp}}</a></li>
+                        <li><a  class="btn btn-light" href="/web/byCat/{{id_loai_sp}}" role="button">{{ten_loai_sp}}</a></li>
                     {{/each}}
                 </ul>
             </li>
