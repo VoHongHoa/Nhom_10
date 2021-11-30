@@ -1,13 +1,13 @@
 
     <main>
         <div class="container-fluid">
-            <h3 style="margin: 16px 8px;">Sản phẩm bán chạy</h3>
+            <h2 class="mb-3" style="text-align: center;">Sản phẩm bán chạy</h2>
             <div class="row">
-                {{#each san_pham}}
-                    <div class="col-3 card_item" >
+                 {{#each san_pham}}
+                <div class="col-3 card_item" >
                     <div class="card mb-3 ">
                         <div class="card_img">
-                            <img src="/images/home/product/img/{{id_sp}}.png" class="card-img-top" alt="{{ten_sp}}" title="{{ten_sp}} : {{gia_sp}}">
+                            <img src="/images/product/p{{id_sp}}/{{id_sp}}.png" class="card-img-top" alt="{{ten_sp}}" title="{{ten_sp}} : {{gia_sp}}">
                             <a class="btn btn-dark quick_view" href="/web/views_sp/{{id_sp}}" role="button"> <i class="fas fa-eye"></i> Quick view</a>
                         </div>
                         <div class="card-body">
@@ -22,7 +22,7 @@
                         </div>
                     </div>  
                 </div>  
-                {{/each}}
+            {{/each}}
             </div>
         </div>
         <div class="mt-3 truot mb-3">

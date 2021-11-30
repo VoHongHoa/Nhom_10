@@ -5,6 +5,7 @@ const khach_hangmodel = require('../../models/khach_hang_model')
 const khachhangmodel = require('../../models/khach_hang_model');
 const Cart = require('../../models/cart')
 const restrict = require("../../middlewares/auth_mw");
+const loai_spModel = require("../../models/loai_sp_model")
 const router = express.Router();
 const bcrypt = require('bcryptjs')
 /*web index*/
@@ -26,7 +27,7 @@ router.get('/', async function(req, res){
 
 
 router.get('/san_pham', async function(req, res){
-    const limit = 2;
+    const limit = 8;
     const page = +req.query.page || 1
     if (page < 0) page =1
     const offset = (page - 1)*limit;
@@ -59,7 +60,7 @@ router.get('/san_pham', async function(req, res){
 })
 
 router.get('/byCat/:id_loai_sp', async function(req, res){
-    const limit = 2;
+    const limit = 4;
     const page = +req.query.page || 1
     if (page < 0) page =1
     const offset = (page - 1)*limit;
@@ -69,7 +70,8 @@ router.get('/byCat/:id_loai_sp', async function(req, res){
         p.gia_moi = p.gia_sp*(100 - p.giam_gia_sp)/100 + 'đ';
         p.f_giam_gia_sp = '-' + p.giam_gia_sp + '%' 
     })
-    const total = await san_phamModel.count();
+    const total = await san_phamModel.countByCat(req.params.id_loai_sp);
+    console.log(total)
     const nPage = Math.ceil(total/limit);
     const page_item = [];
     for (let i = 1;i <= nPage; i++){

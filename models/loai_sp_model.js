@@ -22,6 +22,9 @@ module.exports ={
             id_loai_sp : id
         }
         return db.del(TBL_loai_sp, condition)
-    }
+    },
+    So_luong: function(){
+        return db.load(`SELECT loai_sp.* ,COUNT(san_pham.id_sp) AS So_luong FROM loai_sp LEFT JOIN san_pham ON loai_sp.id_loai_sp = san_pham.id_loai_sp GROUP BY loai_sp.id_loai_sp, loai_sp.ten_loai_sp`);
+    },
     
 }

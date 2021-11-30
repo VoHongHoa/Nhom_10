@@ -19,7 +19,7 @@
                 <tbody>
                 {{#each session.cart.items}}
                     <tr>
-                        <td><img class="img-fluid" src="/images/New_CTSP/p{{this.item.id_sp}}/{{this.item.id_sp}}_1.png" style="width:80px"></td>
+                        <td><img class="img-fluid" src="/images/product/p1/{{this.item.id_sp}}.png" style="width:80px"></td>
                         <td><p>{{this.item.ten_sp}}</p></td>
                         <td>{{this.qty}}</td>
                         <td><p>{{this.item.gia_moi}} <span class="close">đ</span></p></td>
@@ -32,10 +32,11 @@
         </div>
         <div class="card-footer">
             <div style="float: right;">
-                <h2><a href="/web/buy">mua</a></h2>
                 <h3 class="mb-3">Tổng tiền: <span> {{session.cart.totalPrice}}</span> đ</h3>
-                <a style="width:200px" class="btn btn-dark link" href="/web" role="button"><i class="fas fa-backward"> Quay trở lại mua sắm</i></a>
+                 <a class="btn btn-dark" href="/web/buy" role="button">Mua</a>
+                
             </div>
+            <a style="width:200px" class="btn btn-dark link" href="/web" role="button"><i class="fas fa-backward"> Quay trở lại mua sắm</i></a>
         </div>
     </div>
 

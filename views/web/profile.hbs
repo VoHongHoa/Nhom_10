@@ -1,31 +1,36 @@
-<div class="card">
-    <div class="card">
+<div class="d-flex" style="justify-content:center">
+    <div class="card mb-3" style="width: 60%;">
         <div class="card-header">
-          Thông tin của khách hàng
+            <h2>Thông tin của khách hàng</h2>
         </div>
         <div class="card-body">
             <form method="post" action="">
                 <div class="mb-3" style="display: none">
                     <label for="id_kh" class="form-label">ID của khách hàng</label>
-                    <input type="text" class="form-control" id="id_kh" name="id_kh" readonly value="{{lcAuthUser.id_kh}}"> 
+                    <input type="text" class="form-control" id="id_kh" name="id_kh" readonly
+                        value="{{lcAuthUser.id_kh}}">
                 </div>
                 <div class="mb-3">
                     <label for="ten_kh" class="form-label">Họ tên</label>
-                    <input type="text" class="form-control" id="ten_kh" name="ten_kh" value="{{lcAuthUser.ten_kh}}"> 
+                    <input type="text" class="form-control" id="ten_kh" name="ten_kh" value="{{lcAuthUser.ten_kh}}">
                 </div>
                 <div class="mb-3">
                     <label for="so_dt_kh" class="form-label">Số điện thoại</label>
-                    <input type="text" class="form-control" id="so_dt_kh" name="so_dt_kh" value="{{lcAuthUser.so_dt_kh}}">
+                    <input type="text" class="form-control" id="so_dt_kh" name="so_dt_kh"
+                        value="{{lcAuthUser.so_dt_kh}}">
                 </div>
                 <div class="mb-3">
                     <label for="dia_chi_kh" class="form-label">Địa chỉ</label>
-                    <input type="text" class="form-control" id="dia_chi_kh" name="dia_chi_kh" value="{{lcAuthUser.dia_chi_kh}}"> 
+                    <input type="text" class="form-control" id="dia_chi_kh" name="dia_chi_kh"
+                        value="{{lcAuthUser.dia_chi_kh}}">
                 </div>
-                <div class="mb-3">
+                <div class="mb-3 d-flex" style="justify-content: space-between;">
                     <input type="submit" class="btn btn-primary" value="Cập nhật thông tin">
-                </div>  
+                    {{#if lcAuthUser.quyen}}
+                    <a class="btn btn-dark" href="/admin/loai_sp" role="button">Go Admin</a>
+                    {{/if}}
+                </div>
             </form>
+        </div>
     </div>
-</div>
-
 </div>

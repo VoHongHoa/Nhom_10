@@ -51,5 +51,9 @@ module.exports ={
     count: async function(){
         const rows = await db.load(`select count(*) as total from ${TBL_san_pham}`);
         return rows[0].total;
+    },
+    countByCat: async function(id_loai_sp){
+        const rows = await db.load(`select count(*) as total from ${TBL_san_pham} where id_loai_sp = ${id_loai_sp}`);
+        return rows[0].total;
     }
 }
