@@ -1,5 +1,10 @@
 
     <main>
+        {{#if empty}}
+            <h2 class="mb-3" style="text-align: center;">Không có sản phẩm</h2>
+        {{else}}
+            <h2 class="mb-3" style="text-align: center;">{{ten_loai_sp}}</h2>
+        {{/if}}
         <div class="container-fluid">
             <div class="row">
                  {{#each san_pham}}
