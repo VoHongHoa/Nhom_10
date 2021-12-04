@@ -1,24 +1,24 @@
 <div class="card">
     <div class="card">
         <div class="card-header">
-          Edit loai san pham
+          Chỉnh sửa loại sản phẩm
         </div>
         <div class="card-body">
 
             <form method="post">
                 <div class="mb-3">
-                    <label for="id_loai_sp" class="form-label">ID cua loai san pham</label>
+                    <label for="id_loai_sp" class="form-label">ID của loại sản phẩm</label>
                     <input type="text" class="form-control" id="id_loai_sp" name="id_loai_sp" readonly value="{{this.loai_sp.id_loai_sp}}"> 
                 </div>
 
                 <div class="mb-3">
-                    <label for="ten_loai_sp" class="form-label">Ten cua loai san pham</label>
+                    <label for="ten_loai_sp" class="form-label">Tên của loại sản phẩm</label>
                     <input type="text" class="form-control" id="ten_loai_sp" name="ten_loai_sp" autofocus value="{{this.loai_sp.ten_loai_sp}}"> 
                 </div>
                 <div class="mb-3">
                     <a name="" id="" class="btn btn-success" href="/admin/loai_sp" role="button"> <i class="fas fa-backward"></i></a>
                     <button type="submit" class="btn btn-danger" formaction="/admin/loai_sp/del"> <i class="fas fa-trash"></i></button>
-                    <button type="submit" class="btn btn-primary" formaction="/admin/loai_sp/update">Update</button>
+                    <button type="submit" class="btn btn-primary" formaction="/admin/loai_sp/update">Cập nhập</button>
                   
                 </div>  
             </form>

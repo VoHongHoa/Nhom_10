@@ -9,9 +9,9 @@
                 <tr>
                     <th>Hình ảnh</th>
                     <th>Tên sản phẩm</th>
-                    <th>số lượng</th>
+                    <th>Số lượng</th>
                     <th>Giá</th>
-                    <th>Xóa 1 sản </th>
+                    <th>Xóa 1 sản phẩm </th>
                     <th>Lựa chọn</th>
 
                 </tr>
@@ -23,7 +23,7 @@
                         <td><p>{{this.item.ten_sp}}</p></td>
                         <td>{{this.qty}}</td>
                         <td><p>{{this.item.gia_moi}} <span class="close">đ</span></p></td>
-                        <td><a href="/web/remove/{{this.item.id_sp}}">xóa</a></td>
+                        <td><a href="/web/remove/{{this.item.id_sp}}">Xóa</a></td>
                         <td><a name="" id="" class="btn btn-danger link" href="/web/delete/{{this.item.id_sp}}" role="button">Xóa</a></td>
                     </tr>
                 {{/each}}
